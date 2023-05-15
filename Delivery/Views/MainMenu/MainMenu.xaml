@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Delivery.Views.MainMenu.MainMenu"
+             xmlns:views="clr-namespace:Delivery.Views.MainMenu">
+    <Grid BackgroundColor="#F7F7F7">
+        <CollectionView ItemsSource="{Binding ListPlatos}">
+            <CollectionView.Header>
+                <views:Header />
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="2"
+                                 Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:Body />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <views:Footer />
+    </Grid>
+</ContentPage>
