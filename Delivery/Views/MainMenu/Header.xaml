@@ -4,19 +4,20 @@
              x:Class="Delivery.Views.MainMenu.Header">
     <Grid>
         <StackLayout>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal"
+                         Margin="0,0,0,23">
                 <Frame HasShadow="False"
                        CornerRadius="60"
                        Padding="15">
                     <Image Source="https://i.ibb.co/8jcs24c/menu.png"
-                           HeightRequest="25"/>
+                           HeightRequest="25" />
                 </Frame>
                 <Label Text="Eddy Food"
                        HorizontalOptions="CenterAndExpand"
                        FontAttributes="Bold"
                        TextColor="#34344B"
                        VerticalOptions="Center"
-                       FontSize="20"/>
+                       FontSize="20" />
                 <Frame HasShadow="False"
                        CornerRadius="60"
                        Padding="15">
@@ -30,60 +31,76 @@
                 <StackLayout Orientation="Horizontal">
                     <Image Source="https://i.ibb.co/58g65LP/loupe.png"
                            HeightRequest="30"
-                           Margin="6,0,0,0"/>
+                           Margin="6,0,0,0" />
                     <Label Text="Buscar..."
                            VerticalOptions="Center"
                            TextColor="#D1D4DF"
                            FontAttributes="Bold"
-                           HorizontalOptions="FillAndExpand"/>
+                           HorizontalOptions="FillAndExpand" />
                     <Frame CornerRadius="50"
                            HasShadow="False"
                            Padding="10">
                         <Frame.Background>
                             <LinearGradientBrush>
                                 <GradientStop Color="#FE87A5"
-                                              Offset="0.5"/>
-                                <GradientStop Color="#ED6285"/>
+                                              Offset="0.5" />
+                                <GradientStop Color="#ED6285" />
                             </LinearGradientBrush>
                         </Frame.Background>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Filtro"
                                    TextColor="White"
                                    FontAttributes="Bold"
-                                   Margin="0,0,10,0"/>
+                                   Margin="0,0,10,0" />
                             <Image Source="https://i.ibb.co/5cqPwTz/filter.png"
-                                   HeightRequest="19"/>
+                                   HeightRequest="19" />
                         </StackLayout>
                     </Frame>
                 </StackLayout>
             </Frame>
-            <Grid HeightRequest="140">
-                <Frame CornerRadius="50"
-                       HorizontalOptions="StartAndExpand"
-                       Padding="8"
-                       HasShadow="false">
-                    <Frame.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#B8A6F6"
-                                          Offset="0.5" />
-                            <GradientStop Color="#8664FF"
-                                          Offset="1.0" />
-                        </LinearGradientBrush>
-                    </Frame.Background>
-                    <StackLayout Orientation="Vertical">
-                        <Frame CornerRadius="50"
-                               HasShadow="False">
-                            <Image Source="https://i.ibb.co/g4tytBc/hamburger.png"
-                                   HeightRequest="30"/>
-                        </Frame>
-                            <Label Text="Burger"
-                                   HorizontalOptions="Center"
-                                   FontAttributes="Bold"
-                                   TextColor="White"
-                                   VerticalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
-            </Grid>
+            <CollectionView ItemsSource="{Binding ListCategories}"
+                            HeightRequest="140"
+                            x:Name="categoryList">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="50"
+                                   HorizontalOptions="StartAndExpand"
+                                   Padding="8"
+                                   HasShadow="false">
+                                <Frame.Background>
+                                    <LinearGradientBrush
+                                        BindingContext="{Binding Source={RelativeSource AncestorType={x:Type Frame}}, Path=BindingContext}">
+                                        <GradientStop Color="{Binding Color1}"
+                                                      Offset="0.5" />
+                                        <GradientStop Color="{Binding Color2}"
+                                                      Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Frame.Background>
+                                <StackLayout Orientation="Vertical">
+                                    <Frame CornerRadius="50"
+                                           HasShadow="False">
+                                        <Image Source="{Binding Icon}"
+                                               HeightRequest="30" />
+                                    </Frame>
+                                    <Label Text="{Binding Category}"
+                                           HorizontalOptions="Center"
+                                           FontAttributes="Bold"
+                                           TextColor="{Binding TextColor}"
+                                           VerticalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectcommand,Source={x:Reference categoryList}}"
+                                                      CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </Grid>
 </ContentView>

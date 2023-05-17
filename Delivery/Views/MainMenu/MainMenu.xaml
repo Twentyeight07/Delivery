@@ -18,6 +18,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <views:Footer />
+        <views:Footer VerticalOptions="End" />
     </Grid>
 </ContentPage>

@@ -15,6 +15,12 @@ namespace Delivery.Model
         string _color1;
         string _color2;
         string _textColor;
+        bool _select;
+        public bool Select
+        {
+            get { return _select; }
+            set { SetValue(ref _select, value); }
+        }
         public string Color1
         {
             get { return _color1; }
