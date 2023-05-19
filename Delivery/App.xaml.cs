@@ -1,4 +1,5 @@
 ﻿using Delivery.Views.MainMenu;
+using Delivery.Views.Detail;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace Delivery
         {
             InitializeComponent();
 
-            MainPage = new MainMenu();
+            MainPage = new ProductDetail();
         }
 
         protected override void OnStart()

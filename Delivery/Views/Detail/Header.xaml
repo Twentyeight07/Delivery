@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Delivery.Views.Detail.Header"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+    <StackLayout Orientation="Horizontal"
+                 Margin="20">
+        <shadows:Shadows CornerRadius="60"
+                         Shades="{shadows:SingleShade Offset='0,15', Opacity=1.0, Color=#EEEBFC,BlurRadius=15}">
+            <Frame HasShadow="False"
+                   CornerRadius="60"
+                   Padding="15">
+                <Image Source="https://i.ibb.co/pZMZ0YL/left-arrow.png"
+                       HeightRequest="25" />
+            </Frame>
+        </shadows:Shadows>
+        <Label Text="Details"
+               HorizontalOptions="CenterAndExpand"
+               FontAttributes="Bold"
+               TextColor="#34344B"
+               VerticalOptions="Center"
+               FontSize="20" />
+        <shadows:Shadows CornerRadius="60"
+                         Shades="{shadows:SingleShade Offset='0,15', Opacity=1.0, Color=#EEEBFC,BlurRadius=15}">
+            <Frame HasShadow="False"
+                   CornerRadius="60"
+                   Padding="15">
+                <Image Source="https://i.ibb.co/g48Vc3n/share.png"
+                       HeightRequest="25" />
+            </Frame>
+        </shadows:Shadows>
+    </StackLayout>
+</ContentView>
