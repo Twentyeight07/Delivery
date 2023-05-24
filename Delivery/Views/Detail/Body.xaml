@@ -1,10 +1,104 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Delivery.Views.Detail.Body">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+             x:Class="Delivery.Views.Detail.Body"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+    <StackLayout>
+        <Grid TranslationY="-50">
+            <Ellipse Stroke="White"
+                     />
+            <Image Source="https://i.ibb.co/TTwcrp3/IMG02.png"
+                   HeightRequest="300"/>
+            <shadows:Shadows CornerRadius="50"
+                             Shades="{shadows:SingleShade Offset='0,10', Opacity=0.55, Color=#FD88A3,BlurRadius=20}"
+                             TranslationY="18">
+                <Frame VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                       Padding="15,0"
+                       WidthRequest="120"
+                       CornerRadius="50"
+                       HasShadow="false">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="1,0">
+                            <GradientStop Color="#FC86A4"
+                                          Offset="0.5"/>
+                            <GradientStop Color="#E85B7F"
+                                          Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="+"
+                               VerticalOptions="Center"
+                               FontSize="35"
+                               TextColor="White"/>
+                        <Grid HorizontalOptions="CenterAndExpand">
+                            <BoxView BackgroundColor="White"
+                                     VerticalOptions="Center"
+                                     CornerRadius="30"/>
+                            <Label Text="2"
+                                   VerticalOptions="Center"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"
+                                   TextColor="#22223D"
+                                   HorizontalOptions="Center"/>
+                        </Grid>
+                        <Label Text="-"
+                               VerticalOptions="Center"
+                               FontSize="35"
+                               TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+            </shadows:Shadows>
+        </Grid>
+        <Label Text="Soba Noodles With"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               FontSize="Title"
+               TextColor="#22223D"/>
+        <Label Text="Spicy y Greens"
+               HorizontalOptions="Center"
+               FontSize="Title"/>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
+            <Label Text="Visgan Flavour"/>
+            <Image Source="https://i.ibb.co/nkBMrMC/broccoli.png"
+                   HeightRequest="22"/>
+        </StackLayout>
+        <Grid ColumnDefinitions="*,*"
+              Margin="50,25">
+            <shadows:Shadows CornerRadius="60"
+                             Shades="{shadows:SingleShade Offset='0,30', Opacity=0.2, Color=#A1A1A1,BlurRadius=80}" Margin="0,0,5,0">
+                <Frame CornerRadius="60"
+                       HasShadow="false">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="https://i.ibb.co/XzXd024/clock.png"
+                               HeightRequest="45"/>
+                        <StackLayout>
+                            <Label Text="15-20 min"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Delivery"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </shadows:Shadows>
+            <shadows:Shadows CornerRadius="60"
+                             Shades="{shadows:SingleShade Offset='0,30', Opacity=0.2, Color=#A1A1A1,BlurRadius=80}"
+                             Margin="0,0,5,0"
+                             Grid.Column="1">
+                <Frame CornerRadius="60"
+                       HasShadow="false">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="https://i.ibb.co/XzXd024/clock.png"
+                               HeightRequest="45" />
+                        <StackLayout>
+                            <Label Text="15-20 min"
+                                   FontAttributes="Bold" />
+                            <Label Text="Delivery" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </shadows:Shadows>
+        </Grid>
+    </StackLayout>
 </ContentView>
