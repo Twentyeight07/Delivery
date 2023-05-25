@@ -1,5 +1,6 @@
 ﻿using Delivery.Data;
 using Delivery.Model;
+using Delivery.Views.Detail;
 using Delivery.VistaModelo;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Plugin.SharedTransitions;
 
 namespace Delivery.ViewModel
 {
@@ -75,10 +77,19 @@ namespace Delivery.ViewModel
             var funcion = new Dplatos();
             ListPlatos = funcion.ListPlatos();
         }
+        private async void SelectPlato(Mplatos param)
+        {
+            var page = (App.Current.MainPage as SharedTransitionNavigationPage).CurrentPage;
+            SharedTransitionNavigationPage.SetTransitionDuration(page, 1000);
+            SharedTransitionNavigationPage.SetBackgroundAnimation(page, BackgroundAnimation.SlideFromLeft);
+            SharedTransitionNavigationPage.SetTransitionSelectedGroup(page,param.Id);
+            await Navigation.PushAsync(new ProductDetail(param));
+        }
         
         #endregion
         #region COMANDOS
         public ICommand Selectcommand => new Command<Mcategories>(SelectCategory);
+        public ICommand SelectPlatoCommand => new Command<Mplatos>(SelectPlato);
         #endregion
     }
 }

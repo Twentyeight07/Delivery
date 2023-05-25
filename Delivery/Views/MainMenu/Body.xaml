@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Delivery.Views.MainMenu.Body">
+             x:Class="Delivery.Views.MainMenu.Body"
+             xmlns:transition="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions">
     <Grid RowDefinitions="180,*"
           Padding="12">
-        <Frame CornerRadius="12"
+        <Frame CornerRadius="20"
                HasShadow="false"
                Grid.Row="1">
             <StackLayout Margin="0,40,0,0"
@@ -22,6 +23,9 @@
             </StackLayout>
         </Frame>
         <Image Source="{Binding Icon}"
-               TranslationY="30"/>
+               TranslationY="30"
+               transition:Transition.Name="imgTransition"
+               transition:Transition.Group="{Binding Id}"/>
+        
     </Grid>
 </ContentView>

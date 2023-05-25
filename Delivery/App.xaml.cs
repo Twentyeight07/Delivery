@@ -3,6 +3,7 @@ using Delivery.Views.Detail;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.SharedTransitions;
 
 namespace Delivery
 {
@@ -12,7 +13,7 @@ namespace Delivery
         {
             InitializeComponent();
 
-            MainPage = new ProductDetail();
+            MainPage = new SharedTransitionNavigationPage(new MainMenu());
         }
 
         protected override void OnStart()

@@ -2,13 +2,21 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Delivery.Views.Detail.Body"
-             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:transition="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions">
     <StackLayout>
-        <Grid TranslationY="-50">
-            <Ellipse Stroke="White"
-                     />
-            <Image Source="https://i.ibb.co/TTwcrp3/IMG02.png"
-                   HeightRequest="300"/>
+        <Grid TranslationY="-30">
+            <shadows:Shadows CornerRadius="200"
+                             Shades="{shadows:SingleShade Offset='10,30', Opacity=1.0, Color=#F8F6FF,BlurRadius=20}"
+                             TranslationY="18">
+                <Ellipse Stroke="White"
+                         StrokeThickness="30" 
+                         Aspect="UniformToFill"/>
+            </shadows:Shadows>
+            <Image Source="{Binding ParamR.Icon}"
+                   HeightRequest="300"
+                   Margin="60"
+                   transition:Transition.Name="imgTransition"/>
             <shadows:Shadows CornerRadius="50"
                              Shades="{shadows:SingleShade Offset='0,10', Opacity=0.55, Color=#FD88A3,BlurRadius=20}"
                              TranslationY="18">
@@ -50,8 +58,28 @@
                     </StackLayout>
                 </Frame>
             </shadows:Shadows>
+            <Frame HeightRequest="70"
+                   VerticalOptions="Start"
+                   HasShadow="False"
+                   Padding="14,0"
+                   CornerRadius="50"
+                   HorizontalOptions="End"
+                   WidthRequest="130"
+                   Margin="0,0,30,0"
+                   TranslationY="40">
+                <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <Label Text="Pier Pice:"
+                           FontAttributes="Bold"
+                           FontSize="13"/>
+                    <Label Text="{Binding ParamR.Price}"
+                           TextColor="#E85B7F"
+                           FontAttributes="Bold"
+                           FontSize="22"/>
+                </StackLayout>
+            </Frame>
         </Grid>
-        <Label Text="Soba Noodles With"
+        <Label Text="{Binding ParamR.Description}"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                FontSize="Title"

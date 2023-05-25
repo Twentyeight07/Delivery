@@ -27,7 +27,8 @@
             </StackLayout>
             <Frame CornerRadius="50"
                    HasShadow="False"
-                   Padding="10">
+                   Padding="10"
+                   Margin="0,0,0,20">
                 <StackLayout Orientation="Horizontal">
                     <Image Source="https://i.ibb.co/58g65LP/loupe.png"
                            HeightRequest="30"
